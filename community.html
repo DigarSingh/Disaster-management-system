@@ -59,12 +59,15 @@
                 alert("Please fill in all fields.");
                 return;
             }
-            
+
+            // Create post item
             let postItem = document.createElement("li");
             postItem.innerHTML = `<strong>${userName}:</strong> <br> ${postContent}`;
 
+            // Append to post list
             document.getElementById("posts").prepend(postItem);
 
+            // Clear form fields
             document.getElementById("postForm").reset();
         });
     </script>
