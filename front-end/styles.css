@@ -62,13 +62,13 @@ body {
     57.12% { transform: translateX(-400vw); }
     71.4% { transform: translateX(-500vw); }
     85.68% { transform: translateX(-600vw); }
-    95% { transform: translateX(-700vw); } /* Move to duplicate first image */
-    100% { transform: translateX(0); } /* Instantly reset, avoiding delay */
+    95% { transform: translateX(-700vw); }
+    100% { transform: translateX(0); } 
 }
 .slider-track {
     display: flex;
-    width: calc(100vw * 8); /* 7 images + 1 duplicate */
-    animation: slideAnimation 1s infinite linear; /* Smooth loop */
+    width: calc(100vw * 8); 
+    animation: slideAnimation 1s infinite linear; 
 }
 
 /* Hero Section */
