@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fast Dial - Emergency Contacts</title>
+    <link rel="stylesheet" href="fast-dial.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">
+            <h2 style="color: white;">Disaster Relief Platform</h2>
+        </div>
+        <div>
+            <a href="index.html">Home</a>
+            <a href="incidents.html">Incidents</a>
+            <a href="fast-dial.html" class="active">Fast Dials</a>
+            <a href="community.html">Community</a>
+            <a href="emergency.html">Emergency</a>
+            <a href="logout.html">Sign Out</a>
+        </div>
+    </nav>
+
+    <!-- Fast Dial Section -->
+    <div class="container">
+        <h2>Fast Dial Emergency Contacts</h2>
+        <p>Quickly connect with emergency responders and services.</p>
+
+        <div class="contact-list">
+            <div class="contact" onclick="callEmergency('911')">
+                <h3>Police</h3>
+                <p>Dial 100</p>
+            </div>
+            <div class="contact" onclick="callEmergency('108')">
+                <h3>Ambulance</h3>
+                <p>Dial 108</p>
+            </div>
+            <div class="contact" onclick="callEmergency('101')">
+                <h3>Fire Department</h3>
+                <p>Dial 101</p>
+            </div>
+            <div class="contact" onclick="callEmergency('112')">
+                <h3>Universal Emergency</h3>
+                <p>Dial 112</p>
+            </div>
+            <div class="contact" onclick="callEmergency('1098')">
+                <h3>Child Helpline</h3>
+                <p>Dial 1098</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="fast-dial.js"></script>
+</body>
+</html>

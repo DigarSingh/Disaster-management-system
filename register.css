@@ -1,0 +1,99 @@
+/* Center Register Box */
+body {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     height: 100vh;
+     background: linear-gradient(135deg, #96a02e, #1b742c);
+     font-family: Arial, sans-serif;
+ }
+ html, body {
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    overflow-y: hidden; /* Hides vertical scrollbar */
+}
+
+ 
+ /* Register Box */
+ .register-container {
+     background: white;
+     padding: 30px;
+     width: 350px;
+     border-radius: 10px;
+     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+     text-align: center;
+ }
+ 
+ /* Headings */
+ h2 {
+     margin-bottom: 10px;
+     color: #333;
+ }
+ 
+ /* Input Groups */
+ .input-group {
+     position: relative;
+     margin: 20px 0;
+ }
+ 
+ .input-group input {
+     width: 100%;
+     padding: 10px;
+     border: 1px solid #ccc;
+     border-radius: 5px;
+     outline: none;
+     font-size: 16px;
+ }
+ 
+ .input-group label {
+     position: absolute;
+     left: 10px;
+     top: 10px;
+     color: #aaa;
+     font-size: 14px;
+     transition: 0.3s;
+ }
+ 
+ /* Move label when typing */
+ .input-group input:focus + label, 
+ .input-group input:valid + label {
+     top: -10px;
+     font-size: 12px;
+     color: #2ea043;
+ }
+ 
+ /* Password Toggle */
+ .toggle-password {
+     position: absolute;
+     right: 10px;
+     top: 50%;
+     transform: translateY(-50%);
+     cursor: pointer;
+ }
+ 
+ /* Register Button */
+ .register-btn {
+     background: #2ea043;
+     color: white;
+     padding: 10px;
+     width: 100%;
+     border: none;
+     border-radius: 5px;
+     cursor: pointer;
+     font-size: 16px;
+     transition: 0.3s;
+ }
+ 
+ .register-btn:hover {
+     background: #1b742c;
+ }
+ 
+ /* Login Link */
+ .login-link {
+     margin-top: 10px;
+ }
+ 
+ .login-link a {
+     color: #2ea043;
+     text-decoration: none;
+ }
+ 

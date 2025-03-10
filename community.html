@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Forum</title>
+    <link rel="stylesheet" href="community.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <h2 style="color: white;">Disaster Relief Platform</h2>
+        </div>
+        <div>
+            <a href="index.html">Home</a>
+            <a href="incidents.html">Incidents</a>
+            <a href="fast-dial.html">Fast Dials</a>
+            <a href="community.html" class="active">Community</a>
+            <a href="emergency.html" class="btn">Emergency</a>
+            <a href="logout.html" class="btn">Sign Out</a>
+        </div>
+    </nav>
+
+    <!-- Community Section -->
+    <div class="container">
+        <h2>Community Forum</h2>
+        <form id="postForm">
+            <label for="userName">Your Name:</label>
+            <input type="text" id="userName" placeholder="Enter your name (e.g., Admin, User123)" required>
+
+            <label for="postContent">Your Post:</label>
+            <textarea id="postContent" rows="4" placeholder="Share updates, help requests, or information..." required></textarea>
+
+            <button type="submit" class="post-btn">Post</button>
+        </form>
+    </div>
+
+    <!-- Posts List -->
+    <div class="posts-list">
+        <h2>Recent Posts</h2>
+        <ul id="posts">
+            <!-- User-generated posts will appear here -->
+        </ul>
+    </div>
+
+    <script>
+        // Handle Post Submission
+        document.getElementById("postForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            // Get form values
+            let userName = document.getElementById("userName").value.trim();
+            let postContent = document.getElementById("postContent").value.trim();
+
+            // Validate inputs
+            if (!userName || !postContent) {
+                alert("Please fill in all fields.");
+                return;
+            }
+
+            // Create post item
+            let postItem = document.createElement("li");
+            postItem.innerHTML = `<strong>${userName}:</strong> <br> ${postContent}`;
+
+            // Append to post list
+            document.getElementById("posts").prepend(postItem);
+
+            // Clear form fields
+            document.getElementById("postForm").reset();
+        });
+    </script>
+
+</body>
+</html>

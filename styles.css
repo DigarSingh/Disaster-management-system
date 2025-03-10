@@ -1,0 +1,271 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #0d1117;
+    color: #238636;
+    margin: 0;
+    padding: 0;
+}
+/* Navbar */
+.navbar {
+    background: #222;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar a {
+    color:#238636;
+    text-decoration: none;
+    margin: 10 15px;
+    font-size: 16px;
+}
+
+.navbar .btn {
+    background: rgb(18, 119, 24);
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+/* Slider */
+.slider-container {
+    width: 50%;
+    overflow: hidden;
+    position: relative;
+    margin-top: 70px; /* Adjust for fixed navbar */
+}
+
+.slider {
+    display: flex;
+    width: calc(100vm * 8); /* 7 images */
+    animation: slideAnimation 50s infinite linear;
+}
+
+.slider img {
+    width: 50vw; /* Full viewport width */
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10%;
+}
+
+/* Slider Animation */
+@keyframes slideAnimation {
+    0% { transform: translateX(0); }
+    14.28% { transform: translateX(-100vw); }
+    28.56% { transform: translateX(-200vw); }
+    42.84% { transform: translateX(-300vw); }
+    57.12% { transform: translateX(-400vw); }
+    71.4% { transform: translateX(-500vw); }
+    85.68% { transform: translateX(-600vw); }
+    95% { transform: translateX(-700vw); } /* Move to duplicate first image */
+    100% { transform: translateX(0); } /* Instantly reset, avoiding delay */
+}
+.slider-track {
+    display: flex;
+    width: calc(100vw * 8); /* 7 images + 1 duplicate */
+    animation: slideAnimation 1s infinite linear; /* Smooth loop */
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 200px 30px;
+    border-radius: 5%;
+    background: url('disaster.jpg'  )
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #238636;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: #1a5e2d;
+}
+
+/* Features Section */
+.features {
+    display: flex;
+    justify-content: space-around;
+    margin: 50px 20px;
+    flex-wrap: wrap;
+}
+
+.feature-box {
+    background: #161b22;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 30%;
+    min-width: 250px;
+    transition: 0.3s;
+}
+
+.feature-box:hover {
+    background: #21262d;
+}
+
+
+ /* General Form Styling */
+body {
+     font-family: 'Arial', sans-serif;
+     background-color: #121212;
+     color: white;
+     margin: 0;
+     padding: 20px;
+     text-align: center;
+ }
+ 
+ /* Heading */
+ h2 {
+    font-family: 'Arial', sans-serif;
+     border-right: #007BFF;
+     font-size: 30px;
+     color: #ffffff;
+     margin-bottom: 10px;
+
+ }
+ 
+ /* Form Container */
+ form {
+     max-width: 500px;
+     background: #1c1c1c;
+     padding: 20px;
+     margin: 0 auto;
+     border-radius: 8px;
+     box-shadow: 0px 0px 10px rgba(255, 204, 0, 0.5);
+ }
+ 
+ /* Labels */
+ label {
+     display: block;
+     font-size: 16px;
+     margin: 10px 0 5px;
+     text-align: left;
+     color: #ffcc00;
+ }
+ 
+ /* Inputs and Select */
+ input, select, textarea {
+     width: 100%;
+     padding: 10px;
+     margin-bottom: 10px;
+     border: 1px solid #ffcc00;
+     border-radius: 5px;
+     background: #222;
+     color: white;
+     font-size: 16px;
+ }
+ 
+ /* Get Location Button */
+ button[type="button"] {
+     background-color: #007BFF;
+     color: white;
+     padding: 10px;
+     border: none;
+     cursor: pointer;
+     font-size: 16px;
+     border-radius: 5px;
+     transition: 0.3s;
+ }
+ 
+ button[type="button"]:hover {
+     background-color: #0056b3;
+ }
+ 
+ /* Submit Button */
+ button[type="submit"] {
+     background-color: red;
+     color: white;
+     padding: 12px;
+     font-size: 18px;
+     border: none;
+     cursor: pointer;
+     border-radius: 5px;
+     width: 100%;
+     transition: 0.3s;
+ }
+ 
+ button[type="submit"]:hover {
+     background-color: darkred;
+ }
+ 
+ /* Responsive Design */
+ @media (max-width: 600px) {
+     form {
+         width: 90%;
+         padding: 15px;
+     }
+ }
+ 
+
+ 
+ /* Button Styling */
+ .dial-button {
+     display: inline-block;
+     background-color: #238636;
+     color: white;
+     padding: 8px 16px;
+     margin: 5px;
+     border: none;
+     border-radius: 6px;
+     cursor: pointer;
+     font-size: 14px;
+     text-decoration: none;
+     transition: background 0.3s;
+ }
+ 
+ .dial-button:hover {
+     background-color: #2ea043;
+ }
+ 
+ /* Responsive Design */
+ @media (max-width: 600px) {
+     body {
+         padding: 10px;
+     }
+     
+     .container {
+         width: 95%;
+     }
+     
+     th, td {
+         padding: 10px;
+         font-size: 14px;
+     }
+ }
+
+ /* Remove Scrollbar for Entire Page */
+body {
+    overflow-x: hidden;
+}
+
+/* Ensure Slider Container Doesn't Overflow */
+.slider-container {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+
+
