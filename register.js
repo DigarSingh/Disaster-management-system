@@ -26,6 +26,6 @@ function togglePassword() {
      localStorage.setItem("users", JSON.stringify(users));
  
      alert("Registration Successful! You can now log in.");
-     window.location.href = "front-end/login.html"; // Redirect to login page
+     window.location.href = "login.html"; // Redirect to login page
  }
  

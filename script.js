@@ -107,7 +107,7 @@ document.getElementById("incidentForm").addEventListener("submit", function(even
                  confirmButtonText: 'OK'
              }).then(() => {
                  // Redirect to main page after user clicks OK
-                 window.location.href = "front-end/index.html";
+                 window.location.href = "index.html";
              });
          });
      }

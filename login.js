@@ -13,7 +13,7 @@ function loginUser(event) {
     if (username === "admin" || "user" && password === "1234") {
         localStorage.setItem("user", username);
         alert("Login Successful!");
-        window.location.href = "front-end/index.html"; 
+        window.location.href = "index.html"; 
     } else {
         alert("Invalid Credentials. Try again!");
     }

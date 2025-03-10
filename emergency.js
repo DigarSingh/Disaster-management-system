@@ -5,7 +5,7 @@ function sendSOS() {
          icon: "success",
          confirmButtonText: "OK"
      }).then(() => {
-         window.location.href = "front-end/index.html";  // Redirect to home page after sending SOS
+         window.location.href = "index.html";  // Redirect to home page after sending SOS
      });
  }
  
