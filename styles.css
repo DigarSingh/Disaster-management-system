@@ -266,6 +266,48 @@ body {
     position: relative;
     width: 100%;
 }
+footer {
+    background-color: #14181d;
+    color: #ccc;
+    padding: 15px 0;
+    text-align: center;
+    font-size: 14px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-nav a {
+    color: #ccc;
+    text-decoration: none;
+    margin-left: 15px;
+    transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+    color: #ffffff;
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-nav {
+        margin-top: 10px;
+    }
+    .footer-nav a {
+        display: block;
+        margin: 5px 0;
+    }
+}
+
 
 
 
