@@ -54,7 +54,7 @@ PostgreSQL database setup
 
 Clone the Repository
 
-git clone https://github.com/yourusername/disaster-response-system.git
+git clone https://github.com/DigarSingh/disaster-response-system.git
 cd disaster-response-system
 
 Install Dependencies
