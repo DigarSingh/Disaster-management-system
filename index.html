@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Disaster Relief Platform</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="fast-dial.css">
+    
+    <script>
+        // Redirect if user is not authenticated
+        if (!sessionStorage.getItem("isAuthenticated")) {
+            window.location.href = "login.html"; // Go to login page
+        }
+        src="chatbot.js">
+    </script>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">
+            <h2 style="color: #ffffff;">Disaster Relief Platform</h2>
+        </div>
+        <div>
+            <a href="index.html" class="active">Home</a>
+            <a href="incidents.html">Incidents</a>
+            <a href="fast-dial.html">Fast Dials</a>
+            <a href="community.html">Community</a>
+            <a href="emergency.html">Emergency</a>
+            
+            <a href="logout.html" class="btn" onclick="logoutUser()">Sign Out</a>
+
+
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <h1>Welcome to Disaster Relief Platform</h1>
+        <p>Report incidents, request help, and connect with your community.</p>
+        <a href="report.html" class="btn">Report an Incident</a>
+    </header>
+
+        <h2>Natural Disaster</h2>
+
+    <!-- Image Slider Section -->
+    <div class="gallery">
+        <div class="slider">
+            <img src="07.jpg" alt="Image 7">
+            <img src="01.jpg" alt=" Disaster ">
+            <img src="02.jpg" alt=" Disaster ">
+            <img src="03.jpg" alt=" Disaster ">
+            <img src="04.jpg" alt=" Disaster ">
+            <img src="05.jpg" alt=" Disaster ">
+            <img src="06.jpg" alt=" Disaster ">
+            <img src="07.jpg" alt=" Disaster ">
+            <img src="01.jpg" alt="Image 1">
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="feature-box">
+            <h3>Real-Time Reports</h3>
+            <p>Stay updated with live incident reports from users in your area.</p>
+        </div>
+        <div class="feature-box">
+            <h3>Fast Emergency Contacts</h3>
+            <p>Quickly reach out to emergency services in case of crisis.</p>
+        </div>
+        <div class="feature-box">
+            <h3>Community Support</h3>
+            <p>Engage with local communities to help and support in disasters.</p>
+        </div>
+
+    </section>
+
+</body>
+
+    <!-- Footer Section BCA -->
+<footer>
+    <p>All Copyright are reserved under BCA 1 Year 2025</p>
+    <p><a href=""></a></p>
+  </footer>
+  
+
+</html>
+
+
+
