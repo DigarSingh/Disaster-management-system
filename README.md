@@ -32,8 +32,6 @@ Bootstrap (for responsive design)
 
 Node.js & Express.js
 
-PostgreSQL (Database)
-
 Firebase Firestore (Real-time updates)
 
 WebSockets (Real-time communication)
@@ -41,6 +39,8 @@ WebSockets (Real-time communication)
 Twilio API (SMS Alerts)
 
 Google Maps API (Geolocation & Mapping)
+
+Open Weather API
 
 ## Installation
 
