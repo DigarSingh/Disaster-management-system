@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Disaster Management System</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/chatbot.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Add Leaflet.js for the interactive map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="../js/config.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjMzQ5OGRiIiBkPSJNNDgwIDI1NkEyMjQgMjI0IDAgMSAwIDMyIDI1NmEyMjQgMjI0IDAgMSAwIDQ0OCAwek0yNTYgMzM2YTQxIDQxIDAgMSAwIDAtODJhNDEgNDEgMCAxIDAgMCA4M3pNNDggMjU2YTIwOCAxNzYgMCAxIDEgNDE2IDBhMjA4IDE3NiAwIDEgMS00MTYgMHptNDMgNS43YzQuNS0xMSAxMi42LTMxLjQgMzcuMS01Mi4yYTI0MS40IDI0MC4zIDAgMCAxIDY0LjUtMzQuNWMtMS43IDcuNy0yLjYgMTUuNy0yLjYgMjMuOWExMDUgMTA0IDAgMCAwIDExMiAxMDRjNDYuNCAwIDg2LjctMjEuNyAxMDIuMi01M2ExNzYgMTQ0IDAgMCAxLTIwLjUgMjcuOWMtMzUuOSAzOS0xMzIuNCA0Mi43LTE2My40IDQzLjItMzkuMy41LTc0LjQtNS45LTk2LjQtMTIuOC0yMi03LTI4LjgtMTMuNy0zMi45LTE2LjZhMTYgMTYgMCAwIDEtLjEtMjkuOHptMzQwLjMgNC4xYy0xMS4xIDE0LjktMjIuMiAyNS41LTM5LjcgMzQuNkMzNjIuNSAzMTYgMzA4LjMgMzIwIDI2My43IDMyMGMtNDQuNiAwLTk5LjktNC01MTYuNi0xMDIuN2ExNzUuOSAxNDQgMCAwIDEgMTUzLjI2LTE0NGMzNy4zOCAwIDcyLjM3IDEwLjkgMTAyIDI5LjhhMTIwLjcgMTEzLjMgMCAwIDEgNzYuODQgMTguN2MyMS42IDE0LjYgMzYuNyAzNC4xIDQzLjQgNTYuM2ExNzYgMTQ0IDAgMCAxLTE4LjUgMjguN3oiLz48L3N2Zz4=" alt="Disaster Management Logo" class="logo-img">
+            <span>Disaster Management System</span>
+        </div>
+        <nav>
+            <ul>
+                <li class="active"><a href="#dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li><a href="#report"><i class="fas fa-exclamation-triangle"></i> Report Incident</a></li>
+                <li><a href="#fastdial"><i class="fas fa-phone-alt"></i> Fast Dial</a></li>
+                <li><a href="#community"><i class="fas fa-users"></i> Community</a></li>
+                <li><a href="#resources"><i class="fas fa-book"></i> Resources</a></li>
+                <li><a href="#weather-alerts"><i class="fas fa-cloud-sun-rain"></i> Weather Alerts</a></li>
+            </ul>
+        </nav>
+        <div class="user-menu">
+            <div class="user-profile" id="userProfileToggle">
+                <img src="https://e7.pngegg.com/pngimages/799/987/png-clipart-computer-icons-avatar-icon-design-avatar-heroes-computer-wallpaper-thumbnail.png" alt="User Avatar" class="user-avatar" id="headerUserAvatar">
+                <span id="username">Sign in</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="user-dropdown" id="userDropdown">
+                <div class="dropdown-header">
+                    <img src="https://e7.pngegg.com/pngimages/799/987/png-clipart-computer-icons-avatar-icon-design-avatar-heroes-computer-wallpaper-thumbnail.png" alt="User Avatar" class="dropdown-avatar" id="dropdownUserAvatar">
+                    <div class="dropdown-user-info">
+                        <span class="dropdown-username" id="dropdownUsername">Sign in</span>
+                        <span class="dropdown-email" id="dropdownEmail">Not signed in</span>
+                    </div>
+                </div>
+                <div class="dropdown-divider"></div>
+                <ul class="dropdown-menu">
+                    <li><a href="#profile"><i class="fas fa-user"></i> View Profile</a></li>
+                    <li><a href="#edit-profile" id="editProfile"><i class="fas fa-edit"></i> Edit Profile</a></li>
+                    <li><a href="#settings"><i class="fas fa-cog"></i> Settings</a></li>
+                    <li><a href="#help"><i class="fas fa-question-circle"></i> Help Center</a></li>
+                </ul>
+                <div class="dropdown-divider"></div>
+                <button id="logout" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="dashboard" class="section active">
+            <div class="dashboard-hero" style="background-image: url('../latest-new-image.jpg'); background-size: cover; background-position: center;">
+                <div class="dashboard-hero-content">
+                    <h1>Stay Safe, Stay Prepared</h1>
+                    <p>Your community-driven platform for disaster management and emergency response</p>
+                    <button class="btn btn-primary" id="reportEmergencyBtn"><i class="fas fa-exclamation-triangle"></i> Report Emergency</button>
+                </div>
+            </div>
+            
+            <h2><i class="fas fa-tachometer-alt"></i> Dashboard</h2>
+            
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-icon-container">
+                            <i class="fas fa-exclamation-triangle stat-icon"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Active Incidents</h3>
+                            <p class="count">12</p>
+                        </div>
+                    </div>
+                    <div class="stat-footer">
+                        <span class="trend up"><i class="fas fa-arrow-up"></i> 3 new today</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-icon-container">
+                            <i class="fas fa-comments stat-icon"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Community Messages</h3>
+                            <p class="count">45</p>
+                        </div>
+                    </div>
+                    <div class="stat-footer">
+                        <span class="trend up"><i class="fas fa-arrow-up"></i> 8 new today</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-icon-container">
+                            <i class="fas fa-address-book stat-icon"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Emergency Contacts</h3>
+                            <p class="count">5</p>
+                        </div>
+                    </div>
+                    <div class="stat-footer">
+                        <span class="trend flat"><i class="fas fa-minus"></i> No change</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-icon-container">
+                            <i class="fas fa-users stat-icon"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Volunteers</h3>
+                            <p class="count">28</p>
+                        </div>
+                    </div>
+                    <div class="stat-footer">
+                        <span class="trend up"><i class="fas fa-arrow-up"></i> 2 new today</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-history"></i> Recent Incidents</h3>
+                        <div class="card-actions">
+                            <button class="btn-icon" id="refreshIncidents"><i class="fas fa-sync-alt"></i></button>
+                            <button class="btn-icon" id="filterIncidents"><i class="fas fa-filter"></i></button>
+                        </div>
+                    </div>
+                    <div class="incident-container">
+                        <div class="incident-filters">
+                            <select id="incidentTypeFilter">
+                                <option value="all">All Types</option>
+                                <option value="flood">Flood</option>
+                                <option value="fire">Fire</option>
+                                <option value="earthquake">Earthquake</option>
+                                <option value="hurricane">Hurricane/Cyclone</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <select id="incidentSeverityFilter">
+                                <option value="all">All Severity</option>
+                                <option value="high">High</option>
+                                <option value="medium">Medium</option>
+                                <option value="low">Low</option>
+                            </select>
+                            <button id="applyFilters" class="btn-small">Apply</button>
+                        </div>
+                        <div class="incident-list-wrapper">
+                            <div class="loader" id="incidentLoader">
+                                <i class="fas fa-circle-notch fa-spin"></i>
+                                <span>Loading incidents...</span>
+                            </div>
+                            <div class="incident-list" id="recentIncidents">
+                                <!-- Incidents will be loaded dynamically -->
+                            </div>
+                            <div class="empty-state" id="noIncidents">
+                                <i class="fas fa-exclamation-circle"></i>
+                                <p>No incidents found.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="view-all-link">
+                        <a href="#" id="loadMoreIncidents">Load more incidents <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-chart-pie"></i> Incident Types</h3>
+                        <div class="card-actions">
+                            <button class="btn-icon"><i class="fas fa-sync-alt"></i></button>
+                            <button class="btn-icon"><i class="fas fa-ellipsis-v"></i></button>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="incidentTypeChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-map-marked-alt"></i> Incident Map</h3>
+                        <div class="card-actions">
+                            <button class="btn-icon" id="refreshMap"><i class="fas fa-sync-alt"></i></button>
+                            <button class="btn-icon" id="fullscreenMap"><i class="fas fa-expand"></i></button>
+                        </div>
+                    </div>
+                    <div class="map-container">
+                        <div id="incidentMap" style="height: 350px; width: 100%;"></div>
+                    </div>
+                </div>
+                
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-bell"></i> Recent Alerts</h3>
+                        <div class="card-actions">
+                            <button class="btn-icon" id="refreshDashboardAlerts"><i class="fas fa-sync-alt"></i></button>
+                            <button class="btn-icon"><i class="fas fa-ellipsis-v"></i></button>
+                        </div>
+                    </div>
+                    <div class="alerts-list">
+                        <div class="alert-item critical">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <div class="alert-content">
+                                <h4>No Active Alerts</h4>
+                                <p>There are currently no weather alerts for your area.</p>
+                                <span class="alert-time">1 hour ago</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="report" class="section">
+            <h2><i class="fas fa-exclamation-triangle"></i> Report an Incident</h2>
+            <form id="incidentForm">
+                <div class="form-group">
+                    <label for="incidentType">Incident Type</label>
+                    <select id="incidentType" required>
+                        <option value="">Select type</option>
+                        <option value="flood">Flood</option>
+                        <option value="fire">Fire</option>
+                        <option value="earthquake">Earthquake</option>
+                        <option value="hurricane">Hurricane/Cyclone</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <input type="text" id="location" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" rows="5" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="severity">Severity</label>
+                    <select id="severity" required>
+                        <option value="">Select severity</option>
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
+                        <option value="critical">Critical</option>
+                    </select>
+                </div>
+                <div class="form-card">
+                    <div class="form-card-header">
+                    </div>
+                    <div class="form-card-body">
+                        <div class="form-group">
+                            <label>
+                                <i class="fas fa-photo-video"></i> Add Photos & Videos
+                            </label>
+                            <div class="media-tabs">
+                                <button type="button" class="media-tab active" data-media="photos">
+                                    <i class="fas fa-image"></i> Photos
+                                </button>
+                                <button type="button" class="media-tab" data-media="videos">
+                                    <i class="fas fa-video"></i> Videos
+                                </button>
+                            </div>
+                            <div class="media-content active" id="photosContent">
+                                <div class="file-upload-container" id="photoUpload">
+                                    <input type="file" id="incidentPhotos" accept="image/*" multiple class="file-input">
+                                    <div class="upload-placeholder">
+                                        <i class="fas fa-cloud-upload-alt"></i>
+                                        <p>Drag & drop photos or click to browse</p>
+                                        <span class="upload-format">(JPG, PNG or GIF files up to 5MB)</span>
+                                    </div>
+                                </div>
+                                <div class="uploaded-photos" id="uploadedPhotos"></div>
+                            </div>
+                            <div class="media-content" id="videosContent">
+                                <div class="file-upload-container" id="videoUpload">
+                                    <input type="file" id="incidentVideos" accept="video/*" multiple class="file-input">
+                                    <div class="upload-placeholder">
+                                        <i class="fas fa-film"></i>
+                                        <p>Drag & drop videos or click to browse</p>
+                                        <span class="upload-format">(MP4, MOV or AVI files up to 50MB)</span>
+                                    </div>
+                                </div>
+                                <div class="uploaded-videos" id="uploadedVideos"></div>
+                            </div>
+                            <div class="media-tips">
+                                <div class="tip-box">
+                                    <i class="fas fa-lightbulb"></i>
+                                    <div>
+                                        <strong>Need more evidence?</strong>
+                                        <p>Clear photos and videos help emergency teams understand the situation better.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn">Report Incident</button>
+                </div>
+            </form>
+        </section>
+
+        <section id="fastdial" class="section">
+            <h2><i class="fas fa-phone-alt"></i> Fast Dial</h2>
+            <div class="emergency-contacts">
+                <div class="contact-card" data-number="911">
+                    <h3>Emergency Services</h3>
+                    <p class="number">911</p>
+                    <button class="call-btn">Call</button>
+                </div>
+                <div class="contact-card" data-number="101">
+                    <h3>Fire Department</h3>
+                    <p class="number">101</p>
+                    <button class="call-btn">Call</button>
+                </div>
+                <div class="contact-card" data-number="102">
+                    <h3>Ambulance</h3>
+                    <p class="number">102</p>
+                    <button class="call-btn">Call</button>
+                </div>
+                <div class="contact-card" data-number="100">
+                    <h3>Police</h3>
+                    <p class="number">100</p>
+                    <button class="call-btn">Call</button>
+                </div>
+                <div class="contact-card" data-number="1078">
+                    <h3>Disaster Management</h3>
+                    <p class="number">1078</p>
+                    <button class="call-btn">Call</button>
+                </div>
+            </div>
+            <h3>Custom Contacts</h3>
+            <div id="customContacts" class="custom-contacts">
+                <!-- Custom contacts will appear here -->
+            </div>
+            <button id="addContact" class="btn">Add Contact</button>
+        </section>
+
+        <section id="community" class="section">
+            <div class="community-header">
+                <h2><i class="fas fa-users"></i> Community Hub</h2>
+                <div class="community-actions">
+                    <button class="btn btn-outline-primary btn-sm"><i class="fas fa-sliders-h"></i> Preferences</button>
+                    <button class="btn btn-primary btn-sm"><i class="fas fa-bell"></i> Notifications</button>
+                </div>
+            </div>
+            
+            <div class="community-container">
+                <!-- Left sidebar was already removed -->
+                
+                <!-- Main chat area -->
+                <div class="chat-main-area">
+                    <div class="chat-header">
+                        <div class="chat-room-info">
+                            <div class="room-icon emergency">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div>
+                                <h3>Emergency Updates</h3>
+                                
+                            </div>
+                        </div>  
+                    </div>
+                    
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="message-date-divider">
+                            <span>Today</span>
+                        </div>
+                        
+                        <div class="message received">
+                            <div class="message-avatar">
+                                <img src="https://i.pravatar.cc/100?img=7" alt="User">
+                            </div>
+                            <div class="message-content-wrapper">
+                                <div class="message-sender">John Smith <span class="sender-badge emergency">Emergency Response</span></div>
+                                <div class="message-content">
+                                    <p>Alert: Heavy rainfall expected in the eastern district. Please secure your homes and avoid low-lying areas.</p>
+                                </div>
+                                <div class="message-meta">
+                                    <span class="message-time">10:24 AM</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="message received">
+                            <div class="message-avatar">
+                                <img src="https://i.pravatar.cc/100?img=8" alt="User">
+                            </div>
+                            <div class="message-content-wrapper">
+                                <div class="message-sender">Emily Johnson <span class="sender-badge coordinator">Coordinator</span></div>
+                                <div class="message-content">
+                                    <p>The community center is open for those needing shelter. We have supplies and emergency kits available.</p>
+                                </div>
+                                <div class="message-meta">
+                                    <span class="message-time">10:30 AM</span>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="message sent">
+                            <div class="message-content-wrapper">
+                                <div class="message-content">
+                                    <p>Is there any transportation available for elderly residents?</p>
+                                </div>
+                                <div class="message-meta">
+                                    <span class="message-time">10:32 AM</span>
+                                    <span class="message-status"><i class="fas fa-check-double"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="message received">
+                            <div class="message-avatar">
+                                <img src="https://i.pravatar.cc/100?img=7" alt="User">
+                            </div>
+                            <div class="message-content-wrapper">
+                                <div class="message-sender">John Smith <span class="sender-badge emergency">Emergency Response</span></div>
+                                <div class="message-content">
+                                    <p>Yes, we have volunteers with vehicles ready to help. Please call the emergency hotline at 555-0123 with specific locations.</p>
+                                </div>
+                                <div class="message-meta">
+                                    <span class="message-time">10:35 AM</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="message-date-divider">
+                            <span>New Messages</span>
+                        </div>
+                        
+                        <div class="message received">
+                            <div class="message-avatar">
+                                <img src="https://i.pravatar.cc/100?img=9" alt="User">
+                            </div>
+                            <div class="message-content-wrapper">
+                                <div class="message-sender">Alex Rivera <span class="sender-badge volunteer">Volunteer</span></div>
+                                <div class="message-content">
+                                    <p>I'm stationed at Riverside Park with supplies. Anyone in need can find me by the main entrance.</p>
+                                    <div class="message-attachment">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Location: Riverside Park Main Entrance</span>
+                                        <a href="#" class="view-map">View Map</a>
+                                    </div>
+                                </div>
+                                <div class="message-meta">
+                                    <span class="message-time">11:42 AM</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="typing-indicator">
+                            <div class="typing-avatar">
+                                <img src="https://i.pravatar.cc/100?img=8" alt="User">
+                            </div>
+                            <div class="typing-bubbles">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-input">
+                        <button class="chat-btn emoji-btn">
+                            <i class="far fa-smile"></i>
+                        </button>
+                        <button class="chat-btn attach-btn">
+                            <i class="fas fa-paperclip"></i>
+                        </button>
+                        <div class="input-area">
+                            <input type="text" id="messageInput" placeholder="Type a message...">
+                        </div>
+                        <button class="chat-btn send-btn" id="sendMessage">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+                            </div>
+        </section>
+        
+        <section id="weather-alerts" class="section">
+            <h2><i class="fas fa-cloud-sun-rain"></i> Weather Alerts</h2>
+            
+            <div class="weather-grid">
+                <div class="current-weather">
+                    <h3>
+                        <i class="fas fa-temperature-high"></i> Current Weather
+                        <button id="refreshWeatherBtn" class="btn-icon" title="Refresh weather data">
+                            <i class="fas fa-sync-alt"></i>
+                        </button>
+                    </h3>
+                    <div class="weather-details">
+                        <div class="weather-icon">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <div class="weather-info">
+                            <div class="temperature">--°C</div>
+                            <div class="location"><i class="fas fa-map-marker-alt"></i> Loading...</div>
+                            <div class="conditions">Loading weather data...</div>
+                        </div>
+                    </div>
+                    <div class="weather-metrics">
+                        <div class="metric">
+                            <i class="fas fa-wind"></i>
+                            <span>-- km/h</span>
+                            <small>Wind</small>
+                        </div>
+                        <div class="metric">
+                            <i class="fas fa-tint"></i>
+                            <span>--%</span>
+                            <small>Humidity</small>
+                        </div>
+                        <div class="metric">
+                            <i class="fas fa-eye"></i>
+                            <span>-- km</span>
+                            <small>Visibility</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="weather-alerts-list">
+                    <h3><i class="fas fa-exclamation-circle"></i> Active Alerts</h3>
+                    <!-- Weather alerts will be populated dynamically -->
+                </div>
+                
+                <div class="forecast">
+                    <h3><i class="fas fa-calendar-alt"></i> 5-Day Forecast</h3>
+                    <div class="forecast-container">
+                        <!-- Forecast will be populated dynamically -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="resources" class="section">
+            <h2><i class="fas fa-book"></i> Resources & Guides</h2>
+            
+            <div class="resources-container">
+                <div class="resource-category">
+                    <h3><i class="fas fa-house-damage"></i> Disaster Preparedness</h3>
+                    <div class="resources-grid">
+                        <div class="resource-card">
+                            <div class="resource-icon">
+                                <i class="fas fa-flood"></i>
+                            </div>
+                            <h4>Flood Preparedness</h4>
+                            <p>Learn how to prepare your home and family for potential flooding.</p>
+                            <a href="#" class="resource-link">Read Guide <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                        <div class="resource-card">
+                            <div class="resource-icon">
+                                <i class="fas fa-fire"></i>
+                            </div>
+                            <h4>Fire Safety</h4>
+                            <p>Essential fire prevention and evacuation procedures for your home.</p>
+                            <a href="#" class="resource-link">Read Guide <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                        <div class="resource-card">
+                            <div class="resource-icon">
+                                <i class="fas fa-hurricane"></i>
+                            </div>
+                            <h4>Hurricane Guide</h4>
+                            <p>Preparation steps before, during, and after hurricane events.</p>
+                            <a href="#" class="resource-link">Read Guide <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="resource-category">
+                    <h3><i class="fas fa-heartbeat"></i> Emergency Response</h3>
+                    <div class="resources-grid">
+                        <div class="resource-card">
+                            <div class="resource-icon">
+                                <i class="fas fa-first-aid"></i>
+                            </div>
+                            <h4>First Aid Basics</h4>
+                            <p>Essential first aid procedures everyone should know.</p>
+                            <a href="#" class="resource-link">Read Guide <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                        <div class="resource-card">
+                            <div class="resource-icon">
+                                <i class="fas fa-people-carry"></i>
+                            </div>
+                            <h4>Evacuation Procedures</h4>
+                            <p>How to safely evacuate your home or workplace during emergencies.</p>
+                            <a href="#" class="resource-link">Read Guide <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                        <div class="resource-card">
+                            <div class="resource-icon">
+                                <i class="fas fa-car-crash"></i>
+                            </div>
+                            <h4>Road Emergency</h4>
+                            <p>Steps to take during roadside emergencies and accidents.</p>
+                            <a href="#" class="resource-link">Read Guide <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="download-section">
+                    <div class="download-content">
+                        <h3>Emergency Preparedness Checklist</h3>
+                        <p>Download our comprehensive checklist to ensure you're prepared for any emergency.</p>
+                        <button class="btn btn-primary"><i class="fas fa-download"></i> Download PDF</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-section">
+                <h3><i class="fas fa-shield-alt"></i> Disaster Management System</h3>
+                <p>A comprehensive platform for emergency preparedness, response, and community coordination during disasters.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#dashboard">Dashboard</a></li>
+                    <li><a href="#weather-alerts">Weather Alerts</a></li>
+                    <li><a href="#resources">Resources</a></li>
+                    <li><a href="#report">Report Incident</a></li>
+                    <li><a href="#community">Community</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Emergency Contacts</h3>
+                <ul class="footer-links">
+                    <li><strong>Emergency:</strong> 100</li>
+                    <li><strong>Disaster Hotline:</strong> 011-23438017</li>
+                    <li><strong>FEMA:</strong> 1-800-621-3362</li>
+                    <li><strong>Red Cross:</strong> 1-800-733-2767</li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Subscribe for Alerts</h3>
+                <div class="subscribe-form">
+                    <input type="email" placeholder="Your email address">
+                    <button class="btn-small">Subscribe</button>
+                </div>
+                <p class="small-text">Receive important alerts and updates directly to your email.</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Disaster Management System. All rights reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Accessibility</a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="chatbot-container">
+        <div class="chatbot-dialog" id="chatbotDialog">
+            <div class="chatbot-header">
+                <h3>Emergency Assistant</h3>
+                <div class="header-actions">
+                    <button id="minimizeChatbot" class="minimize-btn">—</button>
+                    <button id="closeChatbot" class="close-btn">&times;</button>
+                </div>
+            </div>
+            <div class="chatbot-messages" id="chatbotMessages">
+                <!-- Chatbot messages will appear here -->
+                <div class="message bot-message">
+                    <div class="bot-avatar">🤖</div>
+                    <div>Welcome to Emergency Assistant! How can I help you today?</div>
+                    <div class="message-time">Just now</div>
+                    <div class="quick-replies">
+                        <button class="quick-reply-btn">Report Emergency</button>
+                        <button class="quick-reply-btn">First Aid Tips</button>
+                        <button class="quick-reply-btn">Emergency Contacts</button>
+                    </div>
+                </div>
+            </div>
+            <div class="chatbot-input">
+                <input type="text" id="chatbotInput" placeholder="Ask for help...">
+                <button id="sendChatbot" class="btn-small">Send</button>
+            </div>
+        </div>
+        <button id="openChatbot" class="chatbot-btn">
+            <span class="chatbot-icon">💬</span>
+            <span class="chatbot-text">Chatbot</span>
+        </button>
+    </div>
+
+    <script src="../js/auth.js" type="module"></script>
+    <script src="../js/incident.js"></script>
+    <script src="../js/fastdial.js"></script>
+    <script src="../js/community.js"></script>
+    <script src="../js/chatbot.js"></script>
+    <script src="../js/weather.js"></script>
+    <script src="../js/charts.js"></script>
+    <script src="../js/map.js"></script>
+    <script src="../js/profile.js"></script>
+    <script src="../js/navigation.js"></script>
+    
+    <script>
+        // Report Emergency button functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const reportEmergencyBtn = document.getElementById('reportEmergencyBtn');
+            
+            reportEmergencyBtn.addEventListener('click', function() {
+                // Hide all sections
+                const allSections = document.querySelectorAll('section.section');
+                allSections.forEach(section => {
+                    section.classList.remove('active');
+                });
+                
+                // Show report section
+                document.getElementById('report').classList.add('active');
+                
+                // Update navigation active state
+                const navItems = document.querySelectorAll('nav ul li');
+                navItems.forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Find and activate the Report Incident nav item
+                const reportNavItem = document.querySelector('nav ul li a[href="#report"]').parentNode;
+                reportNavItem.classList.add('active');
+                
+                // Scroll to the report section
+                document.getElementById('report').scrollIntoView();
+            });
+
+            // Listen for auth state changes from Firebase
+            window.addEventListener('firebaseAuthStateChanged', function(event) {
+                const user = event.detail;
+                updateUserUI(user);
+            });
+            
+            // Update user interface with Firebase user data
+            function updateUserUI(user) {
+                const headerUsername = document.getElementById('username');
+                const dropdownUsername = document.getElementById('dropdownUsername');
+                const dropdownEmail = document.getElementById('dropdownEmail');
+                const headerAvatar = document.getElementById('headerUserAvatar');
+                const dropdownAvatar = document.getElementById('dropdownUserAvatar');
+                
+                console.log("Updating UI with user:", user ? user.displayName : "No user");
+                
+                if (user) {
+                    // User is signed in
+                    const displayName = user.displayName || 'User';
+                    const email = user.email || 'No email available';
+                    
+                    // Update text elements
+                    headerUsername.textContent = displayName;
+                    dropdownUsername.textContent = displayName;
+                    dropdownEmail.textContent = email;
+                    
+                    // Update avatar if photoURL is available
+                    if (user.photoURL) {
+                        headerAvatar.src = user.photoURL;
+                        dropdownAvatar.src = user.photoURL;
+                    }
+                    
+                    console.log("User display name set to:", displayName);
+                } else {
+                    // User is signed out
+                    headerUsername.textContent = 'Guest';
+                    dropdownUsername.textContent = 'Guest';
+                    dropdownEmail.textContent = 'Not signed in';
+                    
+                    // Reset to default avatar
+                    headerAvatar.src = 'https://e7.pngegg.com/pngimages/799/987/png-clipart-computer-icons-avatar-icon-design-avatar-heroes-computer-wallpaper-thumbnail.png';
+                    dropdownAvatar.src = 'https://e7.pngegg.com/pngimages/799/987/png-clipart-computer-icons-avatar-icon-design-avatar-heroes-computer-wallpaper-thumbnail.png';
+                    
+                    console.log("No user found, set to Guest");
+                }
+            }
+            
+            // Better initialization that waits for Firebase to be fully loaded
+            function initializeUserProfile() {
+                console.log("Initializing user profile");
+                
+                // Check if Firebase auth module is available
+                if (typeof firebase !== 'undefined' && firebase.auth) {
+                    console.log("Firebase auth available, checking current user");
+                    
+                    // Set up an auth state observer - this is more reliable than just checking currentUser
+                    firebase.auth().onAuthStateChanged(function(user) {
+                        console.log("Auth state changed:", user ? "User logged in" : "No user");
+                        updateUserUI(user);
+                    });
+                } else {
+                    console.log("Firebase auth not available");
+                    // Firebase not ready or not available
+                    setTimeout(initializeUserProfile, 1000); // Try again in 1 second
+                }
+            }
+            
+            // Start the initialization process
+            initializeUserProfile();
+        });
+    </script>
+</body>
+</html>

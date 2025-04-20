@@ -1,0 +1,62 @@
+/* Message expiration styles */
+.message-expiration {
+    margin-left: 10px;
+    font-size: 0.8em;
+    color: #6c757d;
+    opacity: 0.8;
+}
+
+.expiring-soon {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+.chat-expiration-notice {
+    font-size: 0.8rem;
+    color: #6c757d;
+    background-color: rgba(108, 117, 125, 0.1);
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.message-expired {
+    animation: fadeOut 0.5s forwards;
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+/* Clear chat button styles */
+.clear-chat-btn {
+    background-color: #f8f9fa;
+    color: #dc3545;
+    border: 1px solid #dee2e6;
+    padding: 3px 10px;
+    font-size: 0.85rem;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.clear-chat-btn:hover {
+    background-color: #dc3545;
+    color: white;
+}
+
+.clear-chat-btn i {
+    margin-right: 5px;
+}
+
+/* Make room for the clear button */
+.chat-room-info {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
