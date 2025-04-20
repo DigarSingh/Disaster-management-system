@@ -54,11 +54,10 @@ PostgreSQL database setup
 
 Clone the Repository
 
-git clone https://github.com/DigarSingh/disaster-response-system.git
+git clone https://github.com/DigarSingh/Disaster-management-system.git
 cd disaster-response-system
 
 Install Dependencies
-
 npm install
 
 Set Up Environment Variables (Create a .env file and add credentials for APIs and database)
