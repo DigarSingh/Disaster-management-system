@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Home - Disaster Management System</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/home.css">
@@ -14,6 +14,114 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script src="../js/config.js"></script>
 </head>
+<style>
+    /* Responsive styles */
+    @media (max-width: 768px) {
+        header .logo {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header nav ul {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header nav ul li {
+            margin: 10px 0;
+        }
+
+        .dashboard-hero {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .stats {
+            flex-direction: column;
+        }
+
+        .stat-card {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .dashboard-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .dashboard-card {
+            margin-bottom: 20px;
+        }
+
+        .chat-main-area {
+            flex-direction: column;
+        }
+
+        .chat-input {
+            flex-direction: column;
+        }
+
+        .chat-input .input-area {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .weather-grid {
+            flex-direction: column;
+        }
+
+        .current-weather, .weather-alerts-list, .forecast {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        footer .footer-grid {
+            flex-direction: column;
+        }
+
+        footer .footer-section {
+            margin-bottom: 20px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        header .logo span {
+            font-size: 14px;
+        }
+
+        .dashboard-hero h1 {
+            font-size: 24px;
+        }
+
+        .dashboard-hero p {
+            font-size: 14px;
+        }
+
+        .stat-card .stat-info h3 {
+            font-size: 16px;
+        }
+
+        .stat-card .stat-info p {
+            font-size: 14px;
+        }
+
+        .chat-messages {
+            font-size: 14px;
+        }
+
+        .chat-input .input-area input {
+            font-size: 14px;
+        }
+
+        footer .footer-section h3 {
+            font-size: 16px;
+        }
+
+        footer .footer-section p, footer .footer-section ul {
+            font-size: 14px;
+        }
+    }
+</style>
 <body>
     <header>
         <div class="logo">
