@@ -32,8 +32,6 @@ Bootstrap (for responsive design)
 
 Node.js & Express.js
 
-PostgreSQL (Database)
-
 Firebase Firestore (Real-time updates)
 
 WebSockets (Real-time communication)
@@ -41,6 +39,8 @@ WebSockets (Real-time communication)
 Twilio API (SMS Alerts)
 
 Google Maps API (Geolocation & Mapping)
+
+Open Weather API
 
 ## Installation
 
@@ -54,11 +54,10 @@ PostgreSQL database setup
 
 Clone the Repository
 
-git clone https://github.com/DigarSingh/disaster-response-system.git
+git clone https://github.com/DigarSingh/Disaster-management-system.git
 cd disaster-response-system
 
 Install Dependencies
-
 npm install
 
 Set Up Environment Variables (Create a .env file and add credentials for APIs and database)
